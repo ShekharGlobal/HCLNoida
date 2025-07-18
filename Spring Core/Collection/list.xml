@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Project Bean Definitions -->
+    <bean id="project1" class="com.coforge.collection.Project">
+        <constructor-arg value="Inventory Management System"/>
+        <constructor-arg value="Coforge"/>
+    </bean>
+
+    <bean id="project2" class="com.coforge.collection.Project">
+        <constructor-arg value="E-Commerce Platform"/>
+        <constructor-arg value="Wipro"/>
+    </bean>
+
+    <bean id="project3" class="com.coforge.collection.Project">
+        <constructor-arg value="CRM System"/>
+        <constructor-arg value="LTIMindtree"/>
+    </bean>
+
+    <!-- List of Projects Bean -->
+    <bean id="projectList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="project1"/>
+                <ref bean="project2"/>
+                <ref bean="project3"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Employee Bean using Setter Injection -->
+    <bean id="employee1" class="com.coforge.collection.Employee">
+        <property name="id" value="101"/>
+        <property name="name" value="Vikas Khanna"/>
+        <property name="projects" ref="projectList"/>
+    </bean>
+
+</beans>
