@@ -1,0 +1,44 @@
+
+http://localhost:2026/bank/customer
+{
+  
+  "customerName": "Rohit Kumar",
+  "customerContactNumber": 9876543210
+}
+
+
+http://localhost:2026/bank/customer/1/loan
+[
+  {
+    
+    "loanType": "Home Loan",
+    "loanAmount": 500000.0,
+    "repaymentYears": 10,
+    "monthlyDue": 5200.0
+  },
+  {
+    
+    "loanType": "Car Loan",
+    "loanAmount": 300000.0,
+    "repaymentYears": 5,
+    "monthlyDue": 7500.0
+  }
+]
+====================================
+
+[
+  {
+    "loanNumber": 201,
+    "loanType": "Personal Loan",
+    "loanAmount": 250000.0,
+    "repaymentYears": 4,
+    "monthlyDue": 6800.0
+  },
+  {
+    "loanNumber": 202,
+    "loanType": "Education Loan",
+    "loanAmount": 400000.0,
+    "repaymentYears": 7,
+    "monthlyDue": 6200.0
+  }
+]
