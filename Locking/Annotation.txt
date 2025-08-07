@@ -1,0 +1,3 @@
+@ComponentScans({@ComponentScan("com.example.controller"),@ComponentScan("com.example.service")})
+@EntityScan("com.example.entity")
+@EnableJpaRepositories("com.example.repository")
