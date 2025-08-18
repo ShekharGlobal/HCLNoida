@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style >
+            body{
+                color: #ff9999;
+            }
+            h1{
+                color:#660066;
+                font-family: Verdana;
+                text-align: center;
+            }
+        </style>
+        <script >
+        
+            function costCalculation()
+            {
+              
+                var dur=document.getElementById("payment").value;
+                
+                var contype=document.getElementById("bandType").value;
+               // alert(contype);
+                var plan=document.getElementsByName("plan");
+                
+                var ptype,ans;
+                
+                
+                for(var i=0;i<plan.length;i++)
+                {
+                    if(plan[i].checked)
+                    {
+                        ptype=plan[i].value;
+                        break;
+                    }
+                }
+               
+              if(ptype=="Sprint 200 GB" && contype=="Normal")
+              {   
+                  ans= (349/3)*dur+150;
+              }
+              else if(ptype=="Bolt 200 GB" && contype=="Normal")
+              {
+                  ans=(499/3)*dur+150;
+              }
+              else if(ptype=="Rush 500 GB" && contype=="Normal")
+              {
+                  ans=(949/3)*dur+150;
+              }
+              else if(ptype=="Speed 500 GB" && contype=="Normal")
+              {
+                  ans=(1299/3)*dur+150;
+              }
+              
+              //
+              else if(ptype=="Sprint 200 GB" && contype=="ADSL")
+              {   
+                  ans= (349/3)*dur+200;
+              }
+              else if(ptype=="Bolt 200 GB" && contype=="ADSL")
+              {
+                  ans=(499/3)*dur+200;
+              }
+              else if(ptype=="Rush 500 GB" && contype=="ADSL")
+              {
+                  ans=(949/3)*dur+200;
+              }
+              else if(ptype=="Speed 500 GB" && contype=="ADSL")
+              {
+                  ans=(1299/3)*dur+200;
+              }
+              //
+             else if(ptype=="Sprint 200 GB" && contype=="DSL")
+              {   
+                  ans= (349/3)*dur+300;
+              }
+              else if(ptype=="Bolt 200 GB" && contype=="DSL")
+              {
+                  ans=(499/3)*dur+300;
+              }
+              else if(ptype=="Rush 500 GB" && contype=="DSL")
+              {
+                  ans=(949/3)*dur+300;
+              }
+              else if(ptype=="Speed 500 GB" && contype=="DSL")
+              {
+                  ans=(1299/3)*dur+300;
+              }
+               //alert(ans);
+               ans=parseInt(ans);
+              document.getElementById("result").innerHTML="The bill amount is Rs "+ans.toFixed(2);
+             return false;
+            }
+        </script>
+    </head>
+    <body>
+        <h1> Broadband Payment Portal</h1>
+        <form id="form1" onsubmit="return costCalculation()" >
+            <table>
+                  <tr>
+                      <td>Customer Name</td>
+                      <td><input type="text" name="customerName" id="customerName" pattern="[a-zA-Z ]+" required ></td>
+                  </tr>
+                  <tr>
+                      <td>Subscription Number</td>
+                      <td><input type="number" name="Subscription" id="Subscription" min="0" required ></td>
+                  </tr>
+                  <tr>
+                      <td>Email ID</td>
+                      <td><input type="email" name="Email" id="Email"  required=""></td>
+                  </tr>
+                  <tr>
+                      <td>Type of Broadband</td>
+                      <td><select name="bandType" id="bandType" required>
+                          <option value="Normal">Normal</option>
+                          <option value="ADSL">ADSL</option>
+                          <option value="DSL">DSL</option>
+                          </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Plan Name</td>
+					  <td><input type="radio" name="plan" id="plan1" value="Sprint 200 GB">Sprint 200 GB</td>
+                      <td><input type="radio" name="plan" id="plan2" value="Bolt 200 GB" >Bolt 200 GB</td>
+                      <td><input type="radio" name="plan" id="plan3" value="Rush 500 GB">Rush 500 GB</td>
+                      <td><input type="radio" name="plan" id="plan4" value="Speed 500 GB">Speed 500 GB</td>
+                      
+                  </tr>
+                  <tr>
+                      <td>Payment for</td>
+                      <td><input type="number" name="payment" id="payment" min="3"  max="12" required ></td>
+                  </tr>
+                  <tr>
+                      <td><input type="submit" id="submit" name="submit"  value="Calculate Bill Amount" ></td>
+                      <td><input type="reset" name="clear" id="clear" value="Reset" ></td>
+                  </tr>
+                  
+                  
+                  
+            </table>
+            <div id="result">
+                      
+            </div>
+            <table float=right >
+                <caption>Package Chart Table</caption>
+                <thead>
+                    <tr>
+                        <td>Connection Type</td>
+                        <td>Monthly Rental</td>
+                        
+                    </tr>
+		</thead>
+		<tbody>
+                    <tr>
+                        <td>Normal</td>
+                        <td>150</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>ADSL</td>
+                        <td>200</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>DSL</td>
+                        <td>300</td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </form>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Symentic Woods</title> 
+        <!-- Remove the Comments and fill in relevant code -->
+        <!-- Write code wherever necessary  -->
+        <!-- Do specify all the component-ids (incl. div ids) correctly for your code to get evaluated successfully -->
+		<style>
+		input[type="number"] {
+		width:98%;
+		}
+		input[type="text"] {
+		width:98%;
+		}
+		input[type="date"] {
+		width: 98%;
+		}
+		input[type="email"] {
+		width:98%;
+		}
+		input[type="tel"] {
+		width: 98%;
+		}
+		select {
+		width: 98%;
+		}
+		body{
+            background-image: url('tree.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+    		background-size: 55%;
+    		font-weight: bold; 
+		}
+		div{
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			color: #FFFFFF;
+			font-size: 20px; 
+		}
+	
+	   h3{
+           
+           color:#FFFFFF;
+           background-color: #66FF99;
+           margin-left: auto;
+           margin-right: auto;
+           text-align: center;
+           width: 50%;
+           font-family: Verdana;
+           padding: 5px;
+           border-radius: 6px;
+		   /* Fill the attributes and values */
+	   }
+		
+		table, td, tr{
+            width: 50%;
+            border-style: 1px solid;
+            margin-left: auto;
+            margin-right: auto;
+            border-spacing: 1px;
+            border-radius: 6px;
+            color:black ;
+            background-color: transparent;
+            padding: 1px;
+			/* Fill the attributes and values */
+		}
+
+		::-webkit-input-placeholder { 
+			color: #696969;
+			font-weight: bold;
+		}
+		
+		#submit{
+            color:#FFFFFF ;
+            background-color: #66FF99;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
+            width: 50%;
+            font-family: Verdana;
+            font-weight: bold;
+            border-radius: 6px;
+			/* Fill the attributes and values */ 
+		}
+		#result{
+            color: red ;
+            font-size: 20px;
+			/* Fill the attributes and values */
+		}
+
+		</style>
+</head>
+<body>
+<div>
+<h3>Symentic Woods</h3>
+    <!-- Fill the heading text -->
+<form onsubmit="return display()" >
+<center>
+<table border=2>
+	<tr>
+        <td>Customer Name</td>
+        <td><!-- Fill the code for Customer Name -->
+            <input type="text" id="cname" name="cname" pattern="[A-Z a-z]+" placeholder="Enter the customer name" required />
+        </td>
+    </tr>
+	<tr>
+       <td>Phone Number</td>
+	   <td>
+        <input type="text" id="phno" name="phno" 
+        pattern="[7-9][0-9]{9}" placeholder="Enter the phone number" required />
+           <!-- Fill the code for Phone Number --></td>
+    </tr>
+	<tr>
+        <td>Product Id</td>
+        <td><!-- Fill the code for Product Id -->
+            <input type="text" list="proIds" id="pid" nmae="pid" placeholder="Enter the product id" autocomplete="on" required> 
+        <datalist id="proIds">
+            <option value="SWP001">SWP001</option>
+            <option value="SWP002">SWP002</option>
+            <option value="SWP003">SWP003</option>
+            <option value="SWP004">SWP004</option>
+        </datalist></td>
+    </tr>
+	<tr>
+        <td>Date of Order</td>
+        <td>
+            <input type="date" id="orderdate" name="orderdate" required>
+            <!-- Fill the code for Date of Order --></td>
+    </tr>
+	<tr>
+		<td>Quality Level</td>
+		<td>
+            <select name="qlevel" id="qlevel" required>
+                <option value="Select Quality Level..">Select Quality Level..</option>
+                <option value="Level01">Level01</option>
+                <option value="Level02">Level02</option>
+                <option value="Level03">Level03</option>
+            </select>
+            <!-- Fill the code for Quality Level --></td>
+	</tr>
+	<tr>
+        <td>Number of Products</td>
+        <td>
+            <input type="number" id="noOfProducts" name="noOfProducts" placeholder="Enter the number of products" required />
+            <!-- Fill the code for Number of Products --></td>
+    </tr>
+	<tr>
+        <td>Number of KMS for Delivery</td>
+        <td>
+            <input type="number" id="kms" name="kms" placeholder="Enter the number of kms" required />
+            <!-- Fill the code for Number of KMS for Delivery --></td>
+    </tr>
+</table>
+<center>
+
+<p>
+    <input type="submit" id="submit" name="submit" value="CONFIRM ORDER">
+    <!-- Fill the code for Submit --></p>
+
+<div id="result"> </div>
+</form>
+</div>
+<!--Write necessary code wherever needed to complete this code challenge  -->
+<script>
+    // Do not use let keyword to initialize a javascript variable. Instead use var.
+	function show_value(x)
+	{
+        var customerName = document.getElementById("cname").value;
+	  document.getElementById("result").innerHTML="Hi "+ customerName+", Your order has been successfully placed and you need to pay is Rs."+ x ;
+	}
+    function display()
+	{	
+        var productId = document.getElementById("pid").value;
+        var qualityLevel= document.getElementById("qlevel").value;
+        var noOfProducts= document.getElementById("noOfProducts").value
+        var noOfKms = document.getElementById("kms").value;
+        if(qualityLevel == "Level01" && productId=="SWP001" ){
+           var billAmount= (500+ (0.1*500))*(parseInt(noOfProducts)) + (8* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level01" && productId=="SWP002" ){
+           var billAmount= (600+ (0.1*600))*(parseInt(noOfProducts)) + (10* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level01" && productId=="SWP003" ){
+           var billAmount= (800+ (0.1*800))*(parseInt(noOfProducts)) + (11* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level01" && productId=="SWP004" ){
+           var billAmount= (1200+ (0.1*1200))*(parseInt(noOfProducts)) + (13* parseInt(noOfKms))
+        }
+        //
+        else if(qualityLevel == "Level02" && productId=="SWP001" ){
+           var billAmount= (500+ (0.1*500))*(parseInt(noOfProducts)) + (8* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level02" && productId=="SWP002" ){
+           var billAmount= (600+ (0.1*600))*(parseInt(noOfProducts)) + (10* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level02" && productId=="SWP003" ){
+           var billAmount= (800+ (0.1*800))*(parseInt(noOfProducts)) + (11* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level02" && productId=="SWP004" ){
+           var billAmount= (1200+ (0.1*1200))*(parseInt(noOfProducts)) + (13* parseInt(noOfKms))
+        }
+        //
+        else if(qualityLevel == "Level03" && productId=="SWP001" ){
+           var billAmount= (500+ (0.1*500))*(parseInt(noOfProducts)) + (8* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level03" && productId=="SWP002" ){
+           var billAmount= (600+ (0.1*600))*(parseInt(noOfProducts)) + (10* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level03" && productId=="SWP003" ){
+           var billAmount= (800+ (0.1*800))*(parseInt(noOfProducts)) + (11* parseInt(noOfKms))
+        }
+        else if(qualityLevel == "Level03" && productId=="SWP004" ){
+           var billAmount= (1200+ (0.1*1200))*(parseInt(noOfProducts)) + (13* parseInt(noOfKms))
+        }
+
+        show_value(billAmount);
+
+		 /* Fill  the Javascript code to display the bill amount */
+	    return false;
+	}
+			
+</script>
+</body>
+</html>
