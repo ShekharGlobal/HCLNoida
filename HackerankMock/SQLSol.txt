@@ -1,0 +1,20 @@
+SELECT customer_id,
+       name,
+       city,
+       total_spending
+FROM (
+    SELECT c.id AS customer_id,
+           c.name,
+           c.city,
+           FLOOR(SUM(o.amount)) AS total_spending,
+           ROW_NUMBER() OVER (
+               PARTITION BY c.city
+               ORDER BY SUM(o.amount) DESC
+           ) AS rn
+    FROM customers c
+    JOIN orders o
+      ON c.id = o.customer_id
+    GROUP BY c.id, c.name, c.city
+) ranked
+WHERE rn = 1
+ORDER BY city;
